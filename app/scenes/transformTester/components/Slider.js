@@ -1,37 +1,40 @@
 import React, { PropTypes } from 'react';
 
-const Slider = ({ valueLink, label = '', ...props }) =>
+const Slider = ({ onChange, value, label = '', ...props }) =>
   <label> {label}
     <input
       {...props}
       type="range"
-      value={valueLink.value}
+      value={value}
       onChange={e => {
-        valueLink.set(e.target.value);
+        onChange(e.target.value);
       }}
     />
-    {valueLink.value}
+    {value}
   </label>;
 
 Slider.propTypes = {
-  valueLink: PropTypes.object,
-  label: PropTypes.string
+  onChange: PropTypes.func,
+  label: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 export default Slider;
 
-export const StandardSlider = ({ label, valueLink, ...props }) =>
-  <Slider label={label} valueLink={valueLink} max={100} min={-100} step={1} {...props} />;
+export const StandardSlider = ({ label, value, onChange, ...props }) =>
+  <Slider label={label} value={value} onChange={onChange} max={100} min={-100} step={1} {...props} />;
 
 StandardSlider.propTypes = {
-  valueLink: PropTypes.object,
-  label: PropTypes.string
+  onChange: PropTypes.func,
+  label: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
-export const DegreesSlider = ({ label, valueLink, ...props }) =>
-  <Slider label={label} valueLink={valueLink} max={180} min={-180} step={1} {...props} />;
+export const DegreesSlider = ({ label, onChange, value, ...props }) =>
+  <Slider label={label} value={value} onChange={onChange} max={180} min={-180} step={1} {...props} />;
 
 DegreesSlider.propTypes = {
-  valueLink: PropTypes.object,
-  label: PropTypes.string
+  onChange: PropTypes.func,
+  label: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };

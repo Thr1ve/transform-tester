@@ -5,28 +5,29 @@ const boxStyle = {
   width: '150px',
   background: 'lightblue',
   fontSize: '8px',
-  transformStyle: 'preserve-3d'
+  transformStyle: 'preserve-3d',
 };
 
 const TransformBox = ({
-  perspective,
+  perspective, transition,
   tx, ty, tz, rx, ry, rz,
   scx, scy, scz, skx, sky
 }) => <div
   style={{
     ...boxStyle,
+    transition: `${transition ? 'all 0.2s' : 'none'}`,
     transform: `
-    translateX(${tx}vw)
-    translateY(${ty}vh)
-    translateZ(${tz}vh)
-    rotateX(${rx}deg)
-    rotateY(${ry}deg)
-    rotateZ(${rz}deg)
-    scaleX(${scx})
-    scaleY(${scy})
-    scaleZ(${scz})
-    skewX(${skx}deg)
-    skewY(${sky}deg)`
+      translateX(${tx}vw)
+      translateY(${ty}vh)
+      translateZ(${tz}vh)
+      rotateX(${rx}deg)
+      rotateY(${ry}deg)
+      rotateZ(${rz}deg)
+      scaleX(${scx})
+      scaleY(${scy})
+      scaleZ(${scz})
+      skewX(${skx}deg)
+      skewY(${sky}deg)`
   }}
       >
   <div>translateX: {tx} </div>

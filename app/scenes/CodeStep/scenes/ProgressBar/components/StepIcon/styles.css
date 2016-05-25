@@ -1,8 +1,0 @@
-@value dark, darkerBackground from "styles/colors.css";
-
-.stepIconStyles {
-  background: darkerBackground;
-  padding: 0.8vh 0.8vw;
-  color: dark;
-  font-family: "Roboto", monospace;
-}
