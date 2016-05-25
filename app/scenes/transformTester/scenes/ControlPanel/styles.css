@@ -1,0 +1,10 @@
+.controls {
+  border-top: 1px dashed grey;
+  flex: 1 1 auto;
+  max-height: 25vh;
+  padding: 5px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}

@@ -1,56 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { thunk } from 'lib';
 
-// import styles from './styles.css';
+import styles from './styles.css';
 
-import { setMoveBoxState, transitionMoveBox } from './services';
+import { transitionMoveBox, enableTransition } from './services';
 
-import ControlPanel from './ControlPanel';
+import ControlPanel from './scenes/ControlPanel';
+import TransformBox from './components/TransformBox';
+import SnapShots from './scenes/SnapShots';
+import ViewWindow from './scenes/ViewWindow';
 
-const TransformTester = React.createClass({
-  getInitialState() {
-    return {
-      snapShots: []
-    };
-  },
+const TransformTester = ({ dispatch, snapShots }) => {
+  return (
+    <div className={styles.container}>
+      <ViewWindow />
+      <ControlPanel />
+      <SnapShots snapShots={snapShots} createClickHandler={createGoTo} />
+    </div>
+  );
 
-  snapShot(boxState) {
-    this.setState({
-      snapShots: this.state.snapShots.concat(boxState)
-    });
-  },
-
-  createGoTo(matrix) {
+  function createGoTo(matrix) {
     return () => {
-      this.props.dispatch(transitionMoveBox(matrix, 200));
+      dispatch(enableTransition());
+      dispatch(transitionMoveBox(matrix));
     };
-  },
-
-  render() {
-    return (
-      <div>
-        <div style={{ position: 'fixed', left: 0, top: 0, height: '15vh', width: '15vw' }}>
-          {
-            this.props.snapShots.map((snapShot, i) =>
-              <div
-                key={i}
-                onClick={this.createGoTo({ ...snapShot, transition: true })}
-                style={{ width: '50px', height: '50px', background: 'grey' }}
-              >
-                {i}
-              </div>)
-          }
-        </div>
-        <ControlPanel snapShot={this.snapShot} />
-      </div>
-    );
   }
-});
+};
 
 function mapStateToProps(state) {
   return {
-    snapShots: state.transformTester.snapShots
+    snapShots: state.transformTester.snapShots,
   };
 }
 

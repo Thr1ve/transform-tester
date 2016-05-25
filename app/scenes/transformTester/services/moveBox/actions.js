@@ -14,10 +14,6 @@ export const enableTransition = () => ({ type: ENABLE_TRANSITION });
 export const DISABLE_TRANSITION = 'DISABLE_TRANSITION';
 export const disableTransition = () => ({ type: DISABLE_TRANSITION });
 
-export const transitionMoveBox = (matrix, ms) => dispatch => {
-  dispatch(enableTransition());
+export const transitionMoveBox = (matrix) => dispatch => {
   dispatch(setMoveBoxState(matrix));
-  thunk(ms, () => {
-    dispatch(disableTransition());
-  });
 };
