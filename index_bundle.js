@@ -17498,7 +17498,7 @@
 
 	console.log(("ghpages"));
 
-	var base =  true ? '/transform-test/' : '/';
+	var base =  true ? '/transform-tester/' : '/';
 
 	var Routes = _react2.default.createElement(
 	  _reactRouter.Route,
