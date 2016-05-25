@@ -16,12 +16,11 @@ const App = React.createClass({
 
 console.log(__DEV__);
 
-const base = __DEV__ === 'ghpages' ? '/code-step/' : '/';
+const base = __DEV__ === 'ghpages' ? '/transform-tester/' : '/';
 
 const Routes = (
   <Route path={base} component={App}>
     <IndexRoute component={TransformTester} />
-    {/* <Route path="code" component={CodeEditor} /> */}
   </Route>
 );
 
