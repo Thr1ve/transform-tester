@@ -2,7 +2,6 @@
 // https://github.com/reactjs/redux/blob/master/examples/real-world/index.js
 // https://github.com/reactjs/redux/pull/1455/files
 
-import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
