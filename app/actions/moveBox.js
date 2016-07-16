@@ -1,5 +1,3 @@
-import { thunk } from 'lib';
-
 export const SET_MOVEBOX_STATE = 'SET_MOVEBOX_STATE';
 export const setMoveBoxState = (matrix) =>
   ({ type: SET_MOVEBOX_STATE, matrix });

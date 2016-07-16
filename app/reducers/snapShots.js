@@ -1,4 +1,4 @@
-import { ADD_SNAPSHOT } from './actions';
+import { ADD_SNAPSHOT } from '../actions';
 
 export default function snapShotsReducer(state = [], action) {
   switch (action.type) {

@@ -1,8 +1,8 @@
 
 import { combineReducers } from 'redux';
 
-import snapShots from './snapShots/reducer';
-import moveBox from './moveBox/reducer';
+import snapShots from './snapShots';
+import moveBox from './moveBox';
 
 const rootReducer = combineReducers({
   snapShots,

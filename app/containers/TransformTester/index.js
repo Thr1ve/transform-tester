@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 
 import styles from './styles.css';
 
-import { transitionMoveBox, enableTransition } from './services';
+import { transitionMoveBox, enableTransition } from '../../actions';
 
-import ControlPanel from './scenes/ControlPanel';
-import TransformBox from './components/TransformBox';
-import SnapShots from './scenes/SnapShots';
-import ViewWindow from './scenes/ViewWindow';
+import ControlPanel from '../ControlPanel';
+import SnapShots from '../SnapShots';
+import ViewWindow from '../ViewWindow';
 
 const TransformTester = ({ dispatch, snapShots }) => {
   return (

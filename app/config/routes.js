@@ -1,8 +1,9 @@
+/* global __DEV__ */
 
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import TransformTester from '../scenes/TransformTester'; // eslint-disable-line
+import TransformTester from '../containers/TransformTester';
 
 const App = React.createClass({
   render() {
@@ -13,8 +14,6 @@ const App = React.createClass({
     );
   }
 });
-
-console.log(__DEV__);
 
 const base = __DEV__ === 'ghpages' ? '/transform-tester/' : '/';
 

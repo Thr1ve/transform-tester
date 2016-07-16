@@ -1,7 +1,7 @@
 import {
   UPDATE_MOVEBOX_STATE, SET_MOVEBOX_STATE,
   ENABLE_TRANSITION, DISABLE_TRANSITION
-} from './actions';
+} from '../actions';
 
 const defaultState = {
   tx: 0, ty: 0, tz: 0,

@@ -6,7 +6,7 @@ import Slider, { StandardSlider, DegreesSlider } from '../../components/Slider';
 import {
   updateMoveBoxState, setMoveBoxState,
   addSnapshot, disableTransition
-} from '../../services';
+} from '../../actions';
 
 import styles from './styles.css';
 

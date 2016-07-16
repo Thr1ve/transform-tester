@@ -1,7 +1,7 @@
 
 import { combineReducers } from 'redux';
 
-import transformTester from '../scenes/TransformTester/services/reducer';
+import transformTester from '../reducers';
 
 const rootReducer = combineReducers({
   transformTester
