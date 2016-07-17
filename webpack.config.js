@@ -5,6 +5,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 var values = require('postcss-modules-values');
+var NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
@@ -50,6 +51,7 @@ module.exports = {
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new NpmInstallPlugin()
   ]
 };
