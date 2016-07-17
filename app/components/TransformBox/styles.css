@@ -1,0 +1,15 @@
+.transformBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 1vh;
+  height: 25vh;
+  width: 15vw;
+
+  background: #3f51b5;
+  font-size: 0.7vw;
+  font-family: "Roboto", monospace;
+  transform-style: preserve-3d;
+}
