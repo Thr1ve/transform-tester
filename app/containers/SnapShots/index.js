@@ -1,20 +1,23 @@
 import React from 'react';
 
+import Card from '../../components/Card';
+import Button from '../../components/Button';
+
 import styles from './styles.css';
 
-const SnapShots = ({ snapShots, createClickHandler }) => (
+const SnapShots = ({ snapShots, createClickHandler }) =>
   <div className={styles.container}>
-    {
-      snapShots.map((snapShot, i) =>
-        <div
-          key={i}
-          onClick={createClickHandler({ ...snapShot })}
-          className={styles.snapShot}
-        >
-          {`Snapshot ${i + 1}`}
-        </div>)
-    }
-  </div>
-);
+    <Card column width={'10vw'}>
+      {
+        snapShots.map((snapShot, i) =>
+          <Button
+            label={`Position ${i + 1}`}
+            key={i}
+            onClick={createClickHandler({ ...snapShot })}
+          />
+        )
+      }
+    </Card>
+  </div>;
 
 export default SnapShots;
