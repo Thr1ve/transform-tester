@@ -14,8 +14,7 @@
     "prod": "NODE_ENV=production node build/index.js",
     "start": "npm run clean && npm run build && npm run prod",
     "dev": "node server/index.babel.js",
-    "deploy": "npm run clean:client && npm run build:static && gh-pages -d static",
-    "storybook": "start-storybook -p 9001"
+    "deploy": "npm run clean:client && npm run build:static && gh-pages -d static"
   },
   "keywords": [],
   "author": "Thr1ve",
@@ -60,7 +59,6 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "devDependencies": {
-    "@kadira/storybook": "^1.18.0",
     "babel-eslint": "^6.0.2",
     "chalk": "^1.1.3",
     "css-loader": "^0.23.1",
