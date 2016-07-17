@@ -1,6 +1,5 @@
 .card {
   display: flex;
-  width: 20vw;
   transition: 0.3s opacity;
   opacity: 0.3;
   margin: 1vw;
