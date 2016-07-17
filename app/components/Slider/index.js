@@ -1,17 +1,21 @@
 import React, { PropTypes } from 'react';
 
+import styles from './styles.css';
+
 const Slider = ({ onChange, value, label = '', ...props }) =>
-  <label> {label}
-    <input
-      {...props}
-      type="range"
-      value={value}
-      onChange={e => {
-        onChange(e.target.value);
-      }}
-    />
-    {value}
-  </label>;
+  <div className={styles.container}>
+    <label className={styles.label}> {label}: {value}
+      <input
+        {...props}
+        className={styles.slider}
+        type="range"
+        value={value}
+        onChange={e => {
+          onChange(e.target.value);
+        }}
+      />
+    </label>
+  </div>;
 
 Slider.propTypes = {
   onChange: PropTypes.func,

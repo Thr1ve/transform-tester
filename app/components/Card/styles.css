@@ -1,0 +1,14 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  transition: 0.3s opacity;
+  opacity: 0.3;
+  margin: 1vw;
+
+  box-shadow: 2px 2px 5px 0.5px grey;
+}
+
+.card:hover {
+  opacity: 1;
+}

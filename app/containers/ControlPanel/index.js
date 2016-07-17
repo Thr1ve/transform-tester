@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import Slider, { StandardSlider, DegreesSlider } from '../../components/Slider';
+import Card from '../../components/Card';
 
 import {
   updateMoveBoxState, setMoveBoxState,
@@ -29,21 +30,27 @@ const ControlPanel = ({ dispatch, moveBox }) => {
     <div className={styles.controls}>
       <button onClick={reset}>Reset</button>
       <button onClick={saveSnapshot}>SnapShot</button>
-      <StandardSlider label="TransformX" onChange={createDispatcher('tx')} value={tx} />
-      <StandardSlider label="TransformY" onChange={createDispatcher('ty')} value={ty} />
-      <StandardSlider label="TransformZ" onChange={createDispatcher('tz')} value={tz} />
-      <DegreesSlider label="RotateX" onChange={createDispatcher('rx')} value={rx} />
-      <DegreesSlider label="RotateY" onChange={createDispatcher('ry')} value={ry} />
-      <DegreesSlider label="RotateZ" onChange={createDispatcher('rz')} value={rz} />
-      <StandardSlider label="ScaleX" onChange={createDispatcher('scx')} value={scx} />
-      <StandardSlider label="ScaleY" onChange={createDispatcher('scy')} value={scy} />
-      <StandardSlider label="ScaleZ" onChange={createDispatcher('scz')} value={scz} />
-      <DegreesSlider label="SkewX" onChange={createDispatcher('skx')} value={skx} />
-      <DegreesSlider label="SkewY" onChange={createDispatcher('skY')} value={sky} />
-      <Slider
-        label="Perspective" onChange={createDispatcher('perspective')}
-        value={perspective} max={1000} min={0} step={10}
-      />
+      <Card>
+        <StandardSlider label="TransformX" onChange={createDispatcher('tx')} value={tx} />
+        <StandardSlider label="TransformY" onChange={createDispatcher('ty')} value={ty} />
+        <StandardSlider label="TransformZ" onChange={createDispatcher('tz')} value={tz} />
+      </Card>
+      <Card>
+        <DegreesSlider label="RotateX" onChange={createDispatcher('rx')} value={rx} />
+        <DegreesSlider label="RotateY" onChange={createDispatcher('ry')} value={ry} />
+        <DegreesSlider label="RotateZ" onChange={createDispatcher('rz')} value={rz} />
+      </Card>
+      <Card>
+        <StandardSlider label="ScaleX" onChange={createDispatcher('scx')} value={scx} />
+        <StandardSlider label="ScaleY" onChange={createDispatcher('scy')} value={scy} />
+        <StandardSlider label="ScaleZ" onChange={createDispatcher('scz')} value={scz} />
+        <DegreesSlider label="SkewX" onChange={createDispatcher('skx')} value={skx} />
+        <DegreesSlider label="SkewY" onChange={createDispatcher('skY')} value={sky} />
+        <Slider
+          label="Perspective" onChange={createDispatcher('perspective')}
+          value={perspective} max={1000} min={0} step={10}
+        />
+      </Card>
     </div>
   );
 
