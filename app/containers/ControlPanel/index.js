@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Slider, { StandardSlider, DegreesSlider } from '../../components/Slider';
 import Card from '../../components/Card';
+import Button from '../../components/Button';
 
 import {
   updateMoveBoxState, setMoveBoxState,
@@ -28,19 +29,21 @@ const ControlPanel = ({ dispatch, moveBox }) => {
 
   return (
     <div className={styles.controls}>
-      <button onClick={reset}>Reset</button>
-      <button onClick={saveSnapshot}>SnapShot</button>
       <Card>
+        <Button label="SnapShot" onClick={saveSnapshot} />
+        <Button label="Reset" onClick={reset} />
+      </Card>
+      <Card column >
         <StandardSlider label="TransformX" onChange={createDispatcher('tx')} value={tx} />
         <StandardSlider label="TransformY" onChange={createDispatcher('ty')} value={ty} />
         <StandardSlider label="TransformZ" onChange={createDispatcher('tz')} value={tz} />
       </Card>
-      <Card>
+      <Card column >
         <DegreesSlider label="RotateX" onChange={createDispatcher('rx')} value={rx} />
         <DegreesSlider label="RotateY" onChange={createDispatcher('ry')} value={ry} />
         <DegreesSlider label="RotateZ" onChange={createDispatcher('rz')} value={rz} />
       </Card>
-      <Card>
+      <Card column >
         <StandardSlider label="ScaleX" onChange={createDispatcher('scx')} value={scx} />
         <StandardSlider label="ScaleY" onChange={createDispatcher('scy')} value={scy} />
         <StandardSlider label="ScaleZ" onChange={createDispatcher('scz')} value={scz} />
