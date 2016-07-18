@@ -14816,9 +14816,9 @@
 	    _react2.default.createElement(
 	      _Card2.default,
 	      { column: true },
-	      _react2.default.createElement(_Slider.StandardSlider, { label: 'TransformX', onChange: createDispatcher('tx'), value: tx }),
-	      _react2.default.createElement(_Slider.StandardSlider, { label: 'TransformY', onChange: createDispatcher('ty'), value: ty }),
-	      _react2.default.createElement(_Slider.StandardSlider, { label: 'TransformZ', onChange: createDispatcher('tz'), value: tz })
+	      _react2.default.createElement(_Slider.StandardSlider, { label: 'TranslateX', onChange: createDispatcher('tx'), value: tx }),
+	      _react2.default.createElement(_Slider.StandardSlider, { label: 'TranslateY', onChange: createDispatcher('ty'), value: ty }),
+	      _react2.default.createElement(_Slider.StandardSlider, { label: 'TranslateZ', onChange: createDispatcher('tz'), value: tz })
 	    ),
 	    _react2.default.createElement(
 	      _Card2.default,
