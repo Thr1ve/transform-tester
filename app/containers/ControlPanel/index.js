@@ -30,9 +30,9 @@ const ControlPanel = ({ dispatch, moveBox }) => {
         <Button label="Reset" onClick={resetMoveBox} />
       </Card>
       <Card column >
-        <StandardSlider label="TransformX" onChange={createDispatcher('tx')} value={tx} />
-        <StandardSlider label="TransformY" onChange={createDispatcher('ty')} value={ty} />
-        <StandardSlider label="TransformZ" onChange={createDispatcher('tz')} value={tz} />
+        <StandardSlider label="TranslateX" onChange={createDispatcher('tx')} value={tx} />
+        <StandardSlider label="TranslateY" onChange={createDispatcher('ty')} value={ty} />
+        <StandardSlider label="TranslateZ" onChange={createDispatcher('tz')} value={tz} />
       </Card>
       <Card column >
         <DegreesSlider label="RotateX" onChange={createDispatcher('rx')} value={rx} />
