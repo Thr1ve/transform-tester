@@ -31,14 +31,19 @@ const TransformBox = ({
 
 export default TransformBox;
 
-      // translateX(${tx}vw)
-      // translateY(${ty}vh)
-      // translateZ(${tz}vh)
-      // rotateX(${rx}deg)
-      // rotateY(${ry}deg)
-      // rotateZ(${rz}deg)
-      // scaleX(${scx})
-      // scaleY(${scy})
-      // scaleZ(${scz})
-      // skewX(${skx}deg)
-      // skewY(${sky}deg)`
+TransformBox.propTypes = {
+  perspective: PropTypes.number,
+  transition: PropTypes.bool,
+  tx: PropTypes.number,
+  ty: PropTypes.number,
+  tz: PropTypes.number,
+  rx: PropTypes.number,
+  ry: PropTypes.number,
+  rz: PropTypes.number,
+  scx: PropTypes.number,
+  scy: PropTypes.number,
+  scz: PropTypes.number,
+  skx: PropTypes.number,
+  sky: PropTypes.number,
+  matrix: PropTypes.array
+};
