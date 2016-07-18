@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import styles from './styles.css';
 
-import { transitionMoveBox, enableTransition } from '../../actions';
+import { setMoveBoxState, enableTransition } from '../../actions';
 
 import ControlPanel from '../ControlPanel';
 import SnapShots from '../SnapShots';
@@ -21,7 +21,7 @@ const TransformTester = ({ dispatch, snapShots }) => {
   function createGoTo(snapShot) {
     return () => {
       dispatch(enableTransition());
-      dispatch(transitionMoveBox(snapShot.matrix));
+      dispatch(setMoveBoxState(snapShot.matrix));
     };
   }
 };

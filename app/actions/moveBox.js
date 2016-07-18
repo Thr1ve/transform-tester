@@ -14,7 +14,3 @@ export const disableTransition = () => ({ type: DISABLE_TRANSITION });
 
 export const RESET = 'RESET';
 export const reset = () => ({ type: RESET });
-
-export const transitionMoveBox = (matrix) => dispatch => {
-  dispatch(setMoveBoxState(matrix));
-};

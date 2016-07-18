@@ -11,7 +11,7 @@ const Slider = ({ onChange, value, label = '', ...props }) =>
         type="range"
         value={value}
         onChange={e => {
-          onChange(e.target.value);
+          onChange(e.target.valueAsNumber);
         }}
       />
     </label>

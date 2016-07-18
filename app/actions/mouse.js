@@ -1,22 +1,21 @@
-import { translateMatrix } from '../lib/matrices/transforms';
-import { updateMoveBoxStateDirect, updateMoveBoxState } from '../actions';
+import { updateMoveBoxState } from '../actions';
 
-export const mouseMove = event => (dispatch, getState) => {
+export const mouseMove = ({ x, y }) => (dispatch, getState) => {
   const { selected, moveBox } = getState().transformTester;
   if (selected === 'TRANSLATE') {
-    dispatch(updateMoveBoxState('tx', moveBox.tx + event.x));
-    dispatch(updateMoveBoxState('ty', moveBox.ty - event.y));
+    dispatch(updateMoveBoxState('tx', moveBox.tx + x));
+    dispatch(updateMoveBoxState('ty', moveBox.ty - y));
   } else if (selected === 'ROTATE') {
-    dispatch(updateMoveBoxState('rx', moveBox.rx - event.y));
-    dispatch(updateMoveBoxState('ry', moveBox.ry + event.x));
+    dispatch(updateMoveBoxState('rx', moveBox.rx - y));
+    dispatch(updateMoveBoxState('ry', moveBox.ry + x));
   }
 };
 
-export const scroll = event => (dispatch, getState) => {
+export const scroll = ({ z }) => (dispatch, getState) => {
   const { selected, moveBox } = getState().transformTester;
   if (selected === 'TRANSLATE') {
-    dispatch(updateMoveBoxState('tz', moveBox.tz + event.z));
+    dispatch(updateMoveBoxState('tz', moveBox.tz + z));
   } else if (selected === 'ROTATE') {
-    dispatch(updateMoveBoxState('rz', moveBox.rz - event.z));
+    dispatch(updateMoveBoxState('rz', moveBox.rz - z));
   }
 };
