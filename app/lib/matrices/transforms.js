@@ -12,7 +12,7 @@ export const identity = () => [
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate3d
 // Note: the coordinates listed on MDN seem to be incorrect
-const translatMatrix = (x = 0, y = 0, z = 0) => [
+export const translateMatrix = (x = 0, y = 0, z = 0) => [
   1, 0, 0, 0,
   0, 1, 0, 0,
   0, 0, 1, 0,
@@ -20,9 +20,9 @@ const translatMatrix = (x = 0, y = 0, z = 0) => [
 ];
 
 const t = {
-  x: x => translatMatrix(x),
-  y: y => translatMatrix(undefined, y),
-  z: z => translatMatrix(undefined, undefined, z)
+  x: x => translateMatrix(x),
+  y: y => translateMatrix(undefined, y),
+  z: z => translateMatrix(undefined, undefined, z)
 };
 
 export const translate = axis => n => t[axis](n);
