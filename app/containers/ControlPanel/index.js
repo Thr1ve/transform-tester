@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import Slider, { StandardSlider, DegreesSlider } from '../../components/Slider';
+import Slider, {
+  StandardSlider, DegreesSlider, SmallSlider
+} from '../../components/Slider';
+
 import Card from '../../components/Card';
 import Button from '../../components/Button';
 
@@ -44,9 +47,9 @@ const ControlPanel = ({ dispatch, moveBox }) => {
         <DegreesSlider label="RotateZ" onChange={createDispatcher('rz')} value={rz} />
       </Card>
       <Card column >
-        <StandardSlider label="ScaleX" onChange={createDispatcher('scx')} value={scx} />
-        <StandardSlider label="ScaleY" onChange={createDispatcher('scy')} value={scy} />
-        <StandardSlider label="ScaleZ" onChange={createDispatcher('scz')} value={scz} />
+        <SmallSlider label="ScaleX" onChange={createDispatcher('scx')} value={scx} />
+        <SmallSlider label="ScaleY" onChange={createDispatcher('scy')} value={scy} />
+        <SmallSlider label="ScaleZ" onChange={createDispatcher('scz')} value={scz} />
         <DegreesSlider label="SkewX" onChange={createDispatcher('skx')} value={skx} />
         <DegreesSlider label="SkewY" onChange={createDispatcher('skY')} value={sky} />
         <Slider

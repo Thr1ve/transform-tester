@@ -26,7 +26,7 @@ Slider.propTypes = {
 export default Slider;
 
 export const StandardSlider = ({ label, value, onChange, ...props }) =>
-  <Slider label={label} value={value} onChange={onChange} max={100} min={-100} step={1} {...props} />;
+  <Slider label={label} value={value} onChange={onChange} max={1000} min={-1000} step={1} {...props} />;
 
 StandardSlider.propTypes = {
   onChange: PropTypes.func,
@@ -38,6 +38,15 @@ export const DegreesSlider = ({ label, onChange, value, ...props }) =>
   <Slider label={label} value={value} onChange={onChange} max={180} min={-180} step={1} {...props} />;
 
 DegreesSlider.propTypes = {
+  onChange: PropTypes.func,
+  label: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+};
+
+export const SmallSlider = ({ label, value, onChange, ...props }) =>
+  <Slider label={label} value={value} onChange={onChange} max={10} min={-10} step={0.1} {...props} />;
+
+SmallSlider.propTypes = {
   onChange: PropTypes.func,
   label: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
