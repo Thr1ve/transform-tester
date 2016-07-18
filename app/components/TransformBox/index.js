@@ -5,24 +5,13 @@ import styles from './styles.css';
 const TransformBox = ({
   perspective, transition,
   tx, ty, tz, rx, ry, rz,
-  scx, scy, scz, skx, sky
+  scx, scy, scz, skx, sky, matrix
 }) => (
   <div
     className={styles.transformBox}
     style={{
       transition: `${transition ? 'all 1.0s' : 'none'}`,
-      transform: `
-      translateX(${tx}vw)
-      translateY(${ty}vh)
-      translateZ(${tz}vh)
-      rotateX(${rx}deg)
-      rotateY(${ry}deg)
-      rotateZ(${rz}deg)
-      scaleX(${scx})
-      scaleY(${scy})
-      scaleZ(${scz})
-      skewX(${skx}deg)
-      skewY(${sky}deg)`
+      transform: `matrix3d(${matrix})`
     }}
   >
     <div>translateX: {tx} </div>
@@ -41,3 +30,15 @@ const TransformBox = ({
 );
 
 export default TransformBox;
+
+      // translateX(${tx}vw)
+      // translateY(${ty}vh)
+      // translateZ(${tz}vh)
+      // rotateX(${rx}deg)
+      // rotateY(${ry}deg)
+      // rotateZ(${rz}deg)
+      // scaleX(${scx})
+      // scaleY(${scy})
+      // scaleZ(${scz})
+      // skewX(${skx}deg)
+      // skewY(${sky}deg)`
