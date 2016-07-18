@@ -1,5 +1,5 @@
 
-const { sin, cos } = Math;
+const { sin, cos, tan } = Math;
 const degreesToRadians = d => d * (Math.PI / 180);
 
 
@@ -27,22 +27,6 @@ const t = {
 export const translate = axis => n => t[axis](n);
 
 
-const scaleMatrix = (x = 1, y = 1, z = 1) => [
-  x, 0, 0, 0,
-  0, y, 0, 0,
-  0, 0, z, 0,
-  0, 0, 0, 1
-];
-
-const sc = {
-  x: x => scaleMatrix(x),
-  y: y => scaleMatrix(undefined, y),
-  z: z => scaleMatrix(undefined, undefined, z)
-};
-
-export const scale = axis => n => sc[axis](n);
-
-
 const r = {
   x: a => [
     1, 0, 0, 0,
@@ -65,3 +49,34 @@ const r = {
 };
 
 export const rotate = axis => a => r[axis](degreesToRadians(a));
+
+
+const scaleMatrix = (x = 1, y = 1, z = 1) => [
+  x, 0, 0, 0,
+  0, y, 0, 0,
+  0, 0, z, 0,
+  0, 0, 0, 1
+];
+
+const sc = {
+  x: x => scaleMatrix(x),
+  y: y => scaleMatrix(undefined, y),
+  z: z => scaleMatrix(undefined, undefined, z)
+};
+
+export const scale = axis => n => sc[axis](n);
+
+
+const skewMatrix = (x = 0, y = 0) => [
+  1, tan(x), 0, 0,
+  tan(y), 1, 0, 0,
+  0, 0, 1, 0,
+  0, 0, 0, 1
+];
+
+const sk = {
+  x: x => skewMatrix(x),
+  y: y => skewMatrix(undefined, y)
+};
+
+export const skew = axis => n => sk[axis](degreesToRadians(n));

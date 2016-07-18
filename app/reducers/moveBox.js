@@ -1,4 +1,4 @@
-import { identity, translate, rotate, scale } from '../lib/matrices/transforms';
+import { identity, translate, rotate, scale, skew } from '../lib/matrices/transforms';
 import { multiply } from '../lib/matrices/math';
 
 import {
@@ -9,7 +9,8 @@ import {
 const matrixMap = {
   tx: translate('x'), ty: translate('y'), tz: translate('z'),
   rx: rotate('x'), ry: rotate('y'), rz: rotate('z'),
-  scx: scale('x'), scy: scale('y'), scz: scale('z')
+  scx: scale('x'), scy: scale('y'), scz: scale('z'),
+  skx: skew('x'), sky: skew('y')
 };
 
 const defaultState = {
@@ -63,6 +64,9 @@ function getDifference(state, action) {
     case 'scz':
      // TODO:
       return state[action.key] - action.val;
+    case 'tx':
+    case 'tz':
+      return -(state[action.key] - action.val);
     default:
       return state[action.key] - action.val;
   }

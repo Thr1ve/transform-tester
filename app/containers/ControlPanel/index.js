@@ -51,7 +51,7 @@ const ControlPanel = ({ dispatch, moveBox }) => {
         <SmallSlider label="ScaleY" onChange={createDispatcher('scy')} value={scy} />
         <SmallSlider label="ScaleZ" onChange={createDispatcher('scz')} value={scz} />
         <DegreesSlider label="SkewX" onChange={createDispatcher('skx')} value={skx} />
-        <DegreesSlider label="SkewY" onChange={createDispatcher('skY')} value={sky} />
+        <DegreesSlider label="SkewY" onChange={createDispatcher('sky')} value={sky} />
         <Slider
           label="Perspective" onChange={createDispatcher('perspective')}
           value={perspective} max={1000} min={0} step={10}
