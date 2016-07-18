@@ -10,7 +10,8 @@ export const identity = () => [
   0, 0, 0, 1
 ];
 
-
+// https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate3d
+// Note: the coordinates listed on MDN seem to be incorrect
 const translatMatrix = (x = 0, y = 0, z = 0) => [
   1, 0, 0, 0,
   0, 1, 0, 0,
@@ -28,18 +29,21 @@ export const translate = axis => n => t[axis](n);
 
 
 const r = {
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateX
   x: a => [
     1, 0, 0, 0,
     0, cos(a), -sin(a), 0,
     0, sin(a), cos(a), 0,
     0, 0, 0, 1
   ],
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateY
   y: a => [
     cos(a), 0, sin(a), 0,
     0, 1, 0, 0,
     -sin(a), 0, cos(a), 0,
     0, 0, 0, 1
   ],
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateZ
   z: a => [
     cos(a), -sin(a), 0, 0,
     sin(a), cos(a), 0, 0,
@@ -51,6 +55,7 @@ const r = {
 export const rotate = axis => a => r[axis](degreesToRadians(a));
 
 
+// https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale3d
 const scaleMatrix = (x = 1, y = 1, z = 1) => [
   x, 0, 0, 0,
   0, y, 0, 0,
@@ -66,7 +71,7 @@ const sc = {
 
 export const scale = axis => n => sc[axis](n);
 
-
+// https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skew
 const skewMatrix = (x = 0, y = 0) => [
   1, tan(x), 0, 0,
   tan(y), 1, 0, 0,
