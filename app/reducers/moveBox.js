@@ -26,6 +26,13 @@ const defaultState = {
 export default function moveBoxReducer(state = defaultState, action) {
   switch (action.type) {
     case UPDATE_MOVEBOX_STATE:
+      if (action.key === 'perspective') {
+        return {
+          ...state,
+          matrix: [...state.matrix],
+          perspective: action.val
+        };
+      }
       return {
         ...state,
         [action.key]: action.val,
@@ -53,7 +60,8 @@ export default function moveBoxReducer(state = defaultState, action) {
     case RESET:
       return {
         ...defaultState,
-        transition: state.transition
+        transition: state.transition,
+        perspective: state.perspective
       };
     default:
       return state;
