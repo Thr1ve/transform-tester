@@ -3,7 +3,7 @@ import { multiply } from '../lib/matrices/math';
 
 import {
   UPDATE_MOVEBOX_STATE, SET_MOVEBOX_STATE,
-  ENABLE_TRANSITION, DISABLE_TRANSITION
+  ENABLE_TRANSITION, DISABLE_TRANSITION, RESET
 } from '../actions';
 
 const matrixMap = {
@@ -37,9 +37,7 @@ export default function moveBoxReducer(state = defaultState, action) {
     case SET_MOVEBOX_STATE:
       return {
         ...state,
-        ...action.matrix,
-        // TODO:
-        matrix: identity(),
+        matrix: action.matrix,
         transition: state.transition
       };
     case ENABLE_TRANSITION:
@@ -51,6 +49,11 @@ export default function moveBoxReducer(state = defaultState, action) {
       return {
         ...state,
         transition: false
+      };
+    case RESET:
+      return {
+        ...defaultState,
+        transition: state.transition
       };
     default:
       return state;

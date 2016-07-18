@@ -18,10 +18,10 @@ const TransformTester = ({ dispatch, snapShots }) => {
     </div>
   );
 
-  function createGoTo(matrix) {
+  function createGoTo(snapShot) {
     return () => {
       dispatch(enableTransition());
-      dispatch(transitionMoveBox(matrix));
+      dispatch(transitionMoveBox(snapShot.matrix));
     };
   }
 };

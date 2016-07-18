@@ -9,19 +9,12 @@ import Card from '../../components/Card';
 import Button from '../../components/Button';
 
 import {
-  updateMoveBoxState, setMoveBoxState,
-  addSnapshot, disableTransition
+  updateMoveBoxState, addSnapshot,
+  disableTransition, enableTransition,
+  reset
 } from '../../actions';
 
 import styles from './styles.css';
-
-const defaultState = {
-  tx: 0, ty: 0, tz: 0,
-  rx: 0, ry: 0, rz: 0,
-  scx: 1, scy: 1, scz: 1,
-  skx: 0, sky: 0,
-  perspective: 1000,
-};
 
 const ControlPanel = ({ dispatch, moveBox }) => {
   const {
@@ -34,7 +27,7 @@ const ControlPanel = ({ dispatch, moveBox }) => {
     <div className={styles.controls}>
       <Card>
         <Button label="SnapShot" onClick={saveSnapshot} />
-        <Button label="Reset" onClick={reset} />
+        <Button label="Reset" onClick={resetMoveBox} />
       </Card>
       <Card column >
         <StandardSlider label="TransformX" onChange={createDispatcher('tx')} value={tx} />
@@ -60,8 +53,9 @@ const ControlPanel = ({ dispatch, moveBox }) => {
     </div>
   );
 
-  function reset() {
-    dispatch(setMoveBoxState(defaultState));
+  function resetMoveBox() {
+    dispatch(enableTransition());
+    dispatch(reset());
   }
 
   function createDispatcher(key) {
