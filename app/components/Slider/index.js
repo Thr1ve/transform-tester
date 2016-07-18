@@ -44,7 +44,7 @@ DegreesSlider.propTypes = {
 };
 
 export const SmallSlider = ({ label, value, onChange, ...props }) =>
-  <Slider label={label} value={value} onChange={onChange} max={10} min={-10} step={0.1} {...props} />;
+  <Slider label={label} value={value} onChange={onChange} max={10} min={0.1} step={0.1} {...props} />;
 
 SmallSlider.propTypes = {
   onChange: PropTypes.func,

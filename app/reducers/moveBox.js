@@ -62,8 +62,7 @@ function getDifference(state, action) {
     case 'scx':
     case 'scy':
     case 'scz':
-     // TODO:
-      return state[action.key] - action.val;
+      return action.val / state[action.key];
     case 'tx':
     case 'tz':
       return -(state[action.key] - action.val);
