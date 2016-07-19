@@ -14137,9 +14137,11 @@
 	    var moveBox = _getState$transformTe.moveBox;
 
 	    if (selected === 'TRANSLATE') {
+	      dispatch((0, _actions.disableTransition)());
 	      dispatch((0, _actions.updateMoveBoxState)('tx', moveBox.tx + x));
 	      dispatch((0, _actions.updateMoveBoxState)('ty', moveBox.ty - y));
 	    } else if (selected === 'ROTATE') {
+	      dispatch((0, _actions.disableTransition)());
 	      dispatch((0, _actions.updateMoveBoxState)('rx', moveBox.rx - y));
 	      dispatch((0, _actions.updateMoveBoxState)('ry', moveBox.ry + x));
 	    }
@@ -14154,8 +14156,10 @@
 	    var moveBox = _getState$transformTe2.moveBox;
 
 	    if (selected === 'TRANSLATE') {
+	      dispatch((0, _actions.disableTransition)());
 	      dispatch((0, _actions.updateMoveBoxState)('tz', moveBox.tz + z));
 	    } else if (selected === 'ROTATE') {
+	      dispatch((0, _actions.disableTransition)());
 	      dispatch((0, _actions.updateMoveBoxState)('rz', moveBox.rz - z));
 	    }
 	  };
