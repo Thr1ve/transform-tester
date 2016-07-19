@@ -4,8 +4,10 @@ var chalk = require('chalk')
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ProgressBarPlugin = require('progress-bar-webpack-plugin');
-var values = require('postcss-modules-values');
 var NpmInstallPlugin = require('npm-install-webpack-plugin');
+
+var values = require('postcss-modules-values');
+var autoprefixer = require('autoprefixer');
 
 var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
@@ -40,7 +42,7 @@ module.exports = {
     modulesDirectories: ['app', 'node_modules'],
   },
   postcss: [
-    values
+    values, autoprefixer
   ],
   plugins: [
     HtmlWebpackPluginConfig,
